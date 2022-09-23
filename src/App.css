@@ -1,38 +1,217 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* header CSS */
+.Header {
+  padding: 1% 13%;
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2%;
+  margin-bottom: 3%;
+}
+.Header p {
+  font-size: 0.9rem;
+  color: rgb(82, 81, 81);
+  font-weight: 550;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Food list CSS */
+.foodList {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative;
+  padding-bottom: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* food item card */
+.food-item {
+  border-radius: 8px;
+  box-shadow: rgba(67, 71, 85, 0.27) 1px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  display: flex;
+  justify-content: space-between;
+}
+#food-item-image {
+  width: 45%;
+  height: 150px;
+}
+.food-item img {
+  border-radius: 0 8px 8px 0;
+  width: 100%;
+  height: 100%;
+  /* margin: 8px 8px 8px 0; */
+}
+
+.food-item .Content-Div {
+  text-align: left;
+  width: 50%;
+  margin: 10px 0 0 15px;
   display: flex;
   flex-direction: column;
+  /* vertical-align: middle; */
+  justify-content: space-evenly;
+}
+.food-item h3 {
+  margin: 0;
+}
+.food-item p {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 8px;
+  margin: 0;
+}
+.food-item button {
+  width: 65%;
+  color: red;
+  border: 1.8px solid red;
+  background-color: transparent;
+  /* padding: 1.4% 3%; */
+  font-size: 18px;
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: 520;
+}
+.food-item button:hover {
+  background-color: red;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* footer */
+.footer {
+  width: 90%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+.footer h4 {
+  font-size: 18px;
+}
+/* open cart button */
+.openCart {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: red;
+  border: 2px solid red;
+  padding: 2px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  transition: top ease 0.3s;
+}
+.openCart:hover {
+  top: -3px;
+}
+.closeCart {
+  height: 100%;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: red;
+  border: 2px solid red;
+  padding: 2px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  transition: top ease 0.3s;
+}
+.closeCart:hover {
+  top: 6px;
+}
+.Checkout {
+  width: 40px;
+  justify-content: end;
+  background-color: rgba(36, 172, 36, 0.9);
+  color: white;
+  border: 2px solid rgba(36, 172, 36, 0.9);
+  font-size: 16px;
+  padding: 3px 3px 0px;
+  cursor: pointer;
+  position: relative;
+  right: 10px;
+  transition: right ease 0.3s;
+  border-radius: 6px;
+}
+.Checkout:hover {
+  right: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cartDetails {
+  margin: 20px 0;
+}
+.changeQuantity {
+  font-size: 25px;
+}
+.changeQuantity button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* cart list */
+.cartDetails table {
+  width: 100%;
+  border-spacing: 10px;
+  border-collapse: separate;
+  text-align: center;
+  align-items: center;
+}
+.cartDetails table .deleteBtn {
+  color: red;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.cartDetails table thead th {
+  padding: 6px;
+  font-size: 19px;
+  border-radius: 8px;
+}
+
+.cartDetails table td {
+  width: 10%;
+  text-align: center;
+}
+.cartDetails table img {
+  width: 95%;
+  border-radius: 10px;
+}
+
+.PrintTotal h4 {
+  margin: 0;
+  margin-left: 10%;
+  width: 80%;
+  font-size: 20px;
+  border-top: 1.5px solid black;
+  border-bottom: 1.5px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 900px) {
+  .Header {
+    padding: 1% 2%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 760px) {
+  .Header {
+    padding: 1% 0.5%;
   }
+  .Header p {
+    font-size: 2vw;
+  }
+  .food-item button{
+    width: 90%;
+  }
+}
+@media (max-width:550px){
+  
 }
