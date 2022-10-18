@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// react style
 import { styled } from "@mui/material/styles";
 // import for Drawer
 import Box from "@mui/material/Box";
@@ -8,7 +7,6 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Drawer, Typography } from "@mui/material";
 
-// MUI icons imports
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
@@ -74,16 +72,12 @@ export default function Home() {
     },
   ];
 
-  // state for Drawer function
   var [functionDrawer, setFunctionDrawer] = useState(false);
 
-  // Order Cart Array
   var [cartArray, setCartArray] = useState([]);
 
-  // Total order Amount
   var totalAmount = 0;
 
-  // Drawer Style
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -97,7 +91,7 @@ export default function Home() {
     FoodArray.map((item, index) => {
       if (foodIndex === index) {
         var quantityFlag = 0;
-        // if order item exists in cart array
+
         cartArray.map((value, key) => {
           if (item.Id === value.Id) {
             quantityFlag = 1;
@@ -106,7 +100,7 @@ export default function Home() {
             setCartArray([...temp]);
           }
         });
-        // if order item doesn't exists in cart
+
         if (quantityFlag === 0) {
           setCartArray((cartArray) => [
             ...cartArray,
@@ -123,14 +117,13 @@ export default function Home() {
     });
   };
 
-  // decrease item quantity of cart by 1
+  // decrease quantity
   var decreaseItem = (itemIndex) => {
     cartArray.map((item, index) => {
       if (index === itemIndex) {
         let tempQuantity = cartArray;
         tempQuantity[index].Quantity -= 1;
 
-        //Removing order item from cart if quantity become 0
         if (tempQuantity[index].Quantity === 0) {
           tempQuantity.splice(index, 1);
         }
@@ -139,7 +132,7 @@ export default function Home() {
     });
   };
 
-  // increase item quantity of cart by 1
+  // increase quantity
   var increaseItem = (itemIndex) => {
     cartArray.map((item, index) => {
       if (index === itemIndex) {
@@ -161,7 +154,6 @@ export default function Home() {
     });
   };
 
-  // place order function
   var checkOut = () => {
     alert("Your Order is Placed");
     setCartArray([]);
